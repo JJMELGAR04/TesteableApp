@@ -8,6 +8,7 @@ import kotlin.test.assertEquals
 
 class CalculatorTest {
 
+    //Cálculo con 37% de propina y redondeo
     @Test
     fun testCalculateTipWith37PercentAndRoundUp() {
         // Arrange
@@ -22,6 +23,7 @@ class CalculatorTest {
         assertEquals(37.0, result, 0.0)
     }
 
+    //Cálculo con cantidad negativa (debe dar 0)
     @Test
     fun testCalculateTipWithNegativeAmount() {
         // Arrange
@@ -36,6 +38,7 @@ class CalculatorTest {
         assertEquals(0.0, result, 0.0)
     }
 
+    //Cálculo del total a pagar por persona (incluye propina)
     @Test
     fun testCalculateTotalPerPerson() {
         // Arrange
