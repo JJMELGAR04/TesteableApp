@@ -49,15 +49,17 @@ class CalculatorTest {
         val numberOfPeople = 4
         val roundUp = true
 
-        // Act: Calculamos el total por persona (incluyendo la propina)
+        // Act
         val tip = calculateTip(amount, tipPercent, roundUp)
         val totalPerPerson = if (numberOfPeople > 0) (amount + tip) / numberOfPeople else 0.0
 
-        // Assert: Verificamos que el total por persona sea el esperado
+        // Assert
         assertEquals(34.25, totalPerPerson, 0.0)
     }
 
-    //Pruebas Unitarias adicionales (2 pts):
+//---------------------------------------------------------------------------------------------------------------------------------
+
+//    Pruebas Unitarias adicionales (2 pts):
 
 //    Prueba 1
 //    Validar que el porcentaje de propina nunca sea mayor al 50%.
