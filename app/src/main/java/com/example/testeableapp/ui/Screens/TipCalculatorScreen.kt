@@ -21,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 
@@ -63,6 +64,7 @@ fun TipCalculatorScreen() {
             valueRange = 0f..50f,
             steps = 49,
             modifier = Modifier.fillMaxWidth()
+                .testTag("slider")
         )
 
         Text("Número de personas: $numberOfPeople")
@@ -71,11 +73,11 @@ fun TipCalculatorScreen() {
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Button(onClick = { if (numberOfPeople > 1) numberOfPeople-- }) {
+            Button(modifier = Modifier.testTag("subtractPeopleButton"),onClick = { if (numberOfPeople > 1) numberOfPeople-- }) {
                 Text("-")
             }
             Text(text = numberOfPeople.toString())
-            Button(onClick = { numberOfPeople++ }) {
+            Button(modifier = Modifier.testTag("addPeopleButton"), onClick = { numberOfPeople++ }) {
                 Text("+")
             }
         }
@@ -86,7 +88,8 @@ fun TipCalculatorScreen() {
         ) {
             Checkbox(
                 checked = roundUp,
-                onCheckedChange = { roundUp = it }
+                onCheckedChange = { roundUp = it },
+                modifier = Modifier.testTag("roundUpCheckbox")
             )
             Text("Redondear propina", modifier = Modifier.padding(start = 8.dp))
         }
