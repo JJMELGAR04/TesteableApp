@@ -197,4 +197,38 @@ class TipCalculatorTest {
         // Verificar que el total por persona se ha actualizado correctamente
         composeRule.onNodeWithText("Total por persona: $57.50").assertExists("Propina repartida no corresponde a 2 personas")
     }
+
+//    Test 2 adicional
+//
+//    Verifique si el campo de monto de la cuenta maneja correctamente entradas no válidas
+    @Test
+    fun testInvalidBillAmountHandling() {
+        composeRule.setContent {
+            TesteableAppTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    TipCalculatorScreen()
+                }
+            }
+        }
+
+        // Prueba con monto negativo
+        composeRule.onNodeWithText("Monto de la cuenta").performTextClearance()
+        composeRule.onNodeWithText("Monto de la cuenta").performTextInput("-50")
+
+        // Verificar que la propina y el total por persona sean $0.00
+        composeRule.onNodeWithText("Propina: $0.00").assertExists("La propina no se muestra correctamente para un monto negativo")
+        composeRule.onNodeWithText("Total por persona: $0.00").assertExists("El total por persona no se muestra correctamente para un monto negativo")
+
+        // Limpiar el campo y probar con una cadena vacía
+        composeRule.onNodeWithText("Monto de la cuenta").performTextClearance()
+        composeRule.onNodeWithText("Monto de la cuenta").performTextInput("")
+
+        // Verificar que la propina y el total por persona sean $0.00 para una cadena vacía
+        composeRule.onNodeWithText("Propina: $0.00").assertExists("La propina no se muestra correctamente para una cadena vacía")
+        composeRule.onNodeWithText("Total por persona: $0.00").assertExists("El total por persona no se muestra correctamente para una cadena vacía")
+    }
+
 }

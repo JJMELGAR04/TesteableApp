@@ -5,19 +5,19 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="calculateTipWithSlider() (1)">
+      <SelectionState runConfigName="testRoundUpFunctionality()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainActivity">
+      <SelectionState runConfigName="calculateTipWithSlider()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="validateUIElementsExist()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="testRoundUpFunctionality()">
+      <SelectionState runConfigName="testPersonCountAdjustment()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="testPersonCountAdjustment()">
+      <SelectionState runConfigName="testInvalidBillAmountHandling()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
